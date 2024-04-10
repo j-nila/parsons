@@ -95,3 +95,9 @@ application = parsons.create_app()
 ```
 
 Note: Example at https://jnila.pythonanywhere.com/puzzle/ec89f9d3110a4280bd9f1af1a27ba75c
+
+How to use Jaya's version:
+--------------------------
+
+1. Create new puzzles at https://jnila.pythonanywhere.com/
+2. Document the puzzle in the index (TBD)
