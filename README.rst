@@ -63,5 +63,35 @@ This repo uses pipenv for package management and virtual environment (i.e., repl
 * make sure the database is created
 * waitress-serve --listen=127.0.0.1:5000 --call parsons:create_app
 
+Deploying to PythonAnywhere
+===========================
 
+* see https://help.pythonanywhere.com/pages/Flask/
+* use bash console on PythonAnywhere
+* clone the repo. The site be in /home/jnila/parsons
+* in the bash console:
+- pip install pipenv
+- pipenv install
+- pipenv shell
+- cd parsons
+- pipenv install -e .
+- sqlite3 app.db
+- .read parsons/schema.sql
+- to check .tables
+- .exit
+* go to the Web tab > Add a new web app ? Next > Manual configuration
+* Python version matching Pipfile (3.9) > Next
+* update the Code section to add the path to parsons and check
+* go to the Virtualenv section, and enter your virtualenv name (see in the console). When you hit enter, you'll see it updates to the full path to your virtualenv (/home/yourusername/.virtualenvs/my-virtualenv).
+* edit the wsgi.py file
 
+```
+path = '/home/jnila/parsons'
+if path not in sys.path:
+    sys.path.append(path)
+
+import parsons
+application = parsons.create_app()
+```
+
+Note: Example at https://jnila.pythonanywhere.com/puzzle/ec89f9d3110a4280bd9f1af1a27ba75c
