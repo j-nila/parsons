@@ -43,12 +43,16 @@ ul.output {
     overflow: visible;
 }
 
-ul.incorrect {
+#feedback {
+  padding: 10px;
+}
+
+ul.incorrect, .fb-error {
     border: 1px solid red;
     background-color: #ffefef;
 }
 
-ul.correct {
+ul.correct, .fb-good {
     background-color: #efffef;
     background-color: #DFF2BF;
 }

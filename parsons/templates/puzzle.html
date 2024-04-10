@@ -4,14 +4,14 @@
         
     {% block header %}
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137952594-1"></script>
+        <!--script async src="https://www.googletagmanager.com/gtag/js?id=UA-137952594-1"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
           gtag('config', 'UA-137952594-1');
-        </script>
+        </script-->
 
         <title>{{ program['title'] }}</title>    
         <link href="{{ url_for('static', filename='parsons.css') }}" rel="stylesheet" />
@@ -29,6 +29,7 @@
             <input id="newInstanceLink" value="New instance" type="button" />
             <input id="feedbackLink" value="Get feedback" type="button" />
         </p>
+        <div id="feedback"></div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
@@ -39,9 +40,22 @@
         <script>
         var initial = atob("{{ program['code']|b64encode }}");
 
+        function displayFeedback(first, error=true){
+          if (error){
+            $("#feedback").attr("class", "fb-error");
+          } else {
+            $("#feedback").attr("class", "fb-good");
+          }
+          $("#feedback").html(first);
+        }
+
         function displayErrors(fb) {
             if(fb.errors.length > 0) {
                 alert(fb.errors[0]);
+                displayFeedback(fb.errors[0]);
+            } else {
+              //clear feedback
+              displayFeedback('Good job!!', false);
             }
         } 
 
@@ -57,6 +71,8 @@
             $("#newInstanceLink").click(function(event){
                 event.preventDefault();
                 parson.shuffleLines();
+                //clear any feedback
+                displayFeedback('');
             });
             $("#feedbackLink").click(function(event){
                 event.preventDefault();
