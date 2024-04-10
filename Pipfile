@@ -8,7 +8,7 @@ flake8 = "*"
 
 [packages]
 gunicorn = "*"
-parsons = {editable = true,path = "."}
+parsons = {file = ".", editable = true}
 
 [requires]
-python_version = "3.7.12"
+python_version = "3.9"

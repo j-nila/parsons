@@ -19,7 +19,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'flask',
-        'sqlalchemy<1.4',
+        'sqlalchemy',
         'flask_sqlalchemy',
         'python-dotenv',
         'psycopg2',

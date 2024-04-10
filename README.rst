@@ -39,3 +39,29 @@ References
    `Two-dimensional parson’s puzzles: The concept, tools, and first observations <http://jite.org/documents/Vol10/JITEv10IIPp119-132Ihantola944.pdf>`_.
    Journal of Information Technology Education, 10, 119-132.
 3. `CS Teaching Tips - Use Parson’s Puzzles to help students engage with a concept without writing code or experiencing frustrating syntax errors <http://csteachingtips.org/tip/use-parson%E2%80%99s-puzzles-help-students-engage-concept-without-writing-code-or-experiencing>`_.
+
+
+Notes added by Jaya
+===================
+
+This repo uses pipenv for package management and virtual environment (i.e., replacing pip, requirements.txt, and venv). To test locally on a Windows system:
+
+* install it! pip install pipenv (or pip3 install pipenv). You will need admin privileges on your terminal.
+* update Python versions on Pipfile and Pipfile.lock as needed
+* you may need to uninstall and reinstall virtualenv:
+  * pip3 uninstall virtualenv -y
+  * pip3 install -U virtualenv pipenv waitress
+* pipenv install
+* pipenv shell
+* pipenv install -e .
+
+* install sqlite tools bundle, download from https://sqlite.org/download.html. This site has a good lay-of-the-land tutorial that you can glance over https://www.sqlitetutorial.net/download-install-sqlite/
+* run ``/c/sqlite/sqlite3.exe`` to open the cli. It will create a database called app.db. Otherwise, run ``/c/sqlite/sqlite3.exe app.db`` to connect to this database
+* in the cli, run ``.read parsons/schema.sql`` to run the sql
+* run ``.tables`` to ensure the ``program`` table is created, then ``.exit``
+
+* make sure the database is created
+* waitress-serve --listen=127.0.0.1:5000 --call parsons:create_app
+
+
+
