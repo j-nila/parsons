@@ -84,6 +84,7 @@ Deploying to PythonAnywhere
 - .read parsons/schema.sql
 - to check .tables
 - .exit
+
 * go to the Web tab > Add a new web app ? Next > Manual configuration
 * Python version matching Pipfile (3.9) > Next
 * update the Code section to add the path to parsons and check
@@ -99,7 +100,12 @@ import parsons
 application = parsons.create_app()
 ```
 
-Note: Example at https://jnila.pythonanywhere.com/puzzle/ec89f9d3110a4280bd9f1af1a27ba75c
+Each subsequent time:
+* go to console, pull from the repo
+* run schema migration if needed
+* go to web tab and reload
+
+Note: Example at https://jnila.pythonanywhere.com/puzzle/906af7b8a56c479796816ce53545d1cb
 
 How to use Jaya's version:
 --------------------------
