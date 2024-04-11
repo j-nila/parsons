@@ -20,13 +20,14 @@
     {% endblock %}
 
     {% block content %}
-        <h1>{{ program['title'] }}</h1>    
+        <h1>{{ program['title'] }}</h1>
+        <p><strong>Your task: </strong>{{ program['description'] }}</p>    
         <div id="sortableTrash" class="sortable-code"></div>
         <div id="sortable" class="sortable-code">
         </div>
         <div style="clear:both;"></div>
         <p>
-            <input id="newInstanceLink" value="New instance" type="button" />
+            <input id="newInstanceLink" value="Restart" type="button" />
             <input id="feedbackLink" value="Get feedback" type="button" />
         </p>
         <div id="feedback"></div>

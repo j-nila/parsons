@@ -5,10 +5,22 @@
     padding-left: 0px;
     margin-left: 2%;
     float: left;
+    font-style:italic;
 }
-#sortableTrash { width: 38%; }
-#sortable { width: 56%; }
+#sortableTrash { width: 46%; }
+#sortable { width: 46%; }
+
+p input { 
+  width: 46%;
+  margin-left: 2%;
+  padding: 5px;
+  background: royalblue;
+  color: white;
+  font-weight:bold;
+ }
+
 .sortable-code ul {
+    font-style:normal;
     font-size: 120%;
     font-family: monospace;
     list-style: none;
@@ -45,6 +57,10 @@ ul.output {
 
 #feedback {
   padding: 10px;
+}
+
+#feedback:empty {
+  display: none;
 }
 
 ul.incorrect, .fb-error {

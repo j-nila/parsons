@@ -23,11 +23,15 @@ def create():
     """Create a new program."""
     if request.method == 'POST':
         title = request.form['title']
+        description = request.form['description']
         code = request.form['code']
         error = None
 
         if not title:
             error = 'Title is required.'
+
+        if not description:
+            error = 'Description is required'
 
         if not code:
             error = 'Code is required.'
@@ -37,6 +41,7 @@ def create():
         else:
             program_url = generate_random_url()
             db.session.add(Program(title=title,
+                                   description=description,
                                    code=code,
                                    url=program_url))
             db.session.commit()

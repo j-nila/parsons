@@ -60,7 +60,12 @@ This repo uses pipenv for package management and virtual environment (i.e., repl
 * in the cli, run ``.read parsons/schema.sql`` to run the sql
 * run ``.tables`` to ensure the ``program`` table is created, then ``.exit``
 
-* once the database is created, from the parsons directory
+* once the database is created
+* waitress-serve --listen=127.0.0.1:5000 --call parsons:create_app
+
+* each subsequent time restart the virtual env:
+* pipenv shell
+* pipenv install -e .
 * waitress-serve --listen=127.0.0.1:5000 --call parsons:create_app
 
 Deploying to PythonAnywhere
